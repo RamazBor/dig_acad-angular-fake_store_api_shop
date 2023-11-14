@@ -1,0 +1,24 @@
+<footer>
+  <div class="icons-box">
+    <div
+      class="social-networks"
+      *ngFor="let icon of socialIcons; let i = index"
+    >
+      <a [href]="icon.address" [target]="'_blank'"
+        ><i [class]="icon.class"></i
+      ></a>
+    </div>
+  </div>
+  <nav>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Services</li>
+      <li>Team</li>
+      <li>Contact</li>
+    </ul>
+  </nav>
+  <div class="author">
+    <p>&copy;2023 Ramaz Borchashvili | All Rights Reserved</p>
+  </div>
+</footer>

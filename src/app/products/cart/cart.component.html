@@ -1,0 +1,33 @@
+<div class="content" [ngSwitch]="cartProducts.length > 0">
+  <h1>Shopping Cart</h1>
+  <ng-container *ngSwitchCase="true">
+    <table class="table" *ngIf="cartProducts.length > 0">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>id</th>
+          <th>price</th>
+          <th>quantity</th>
+          <th>total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prod of cartProducts">
+          <th>
+            <img [src]="prod.image" alt="product-image" />
+          </th>
+          <td>{{ prod.id }}</td>
+          <td>{{ prod.price | currency : "EUR" }}</td>
+          <td>{{ getAmount(prod.id) }}</td>
+          <td>{{ getTotalPrice(prod) | currency : "EUR" }}</td>
+          <td>
+            <button class="remove-btn" (click)="removeItem(prod.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <div *ngSwitchCase="false">There are no items in store.</div>
+</div>

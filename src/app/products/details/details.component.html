@@ -1,0 +1,60 @@
+<div class="content" *ngIf="product">
+  <button routerLink="../../products" class="go-back">GO BACK</button>
+  <div class="details">
+    <h2 class="product-title">{{ product.title }}</h2>
+    <div class="info">
+      <div class="product-image">
+        <img [src]="product.image" [alt]="product.image" />
+      </div>
+      <div class="features">
+        <p>features</p>
+        <p>
+          <span>id:</span><span>{{ product.id }}</span>
+        </p>
+        <p>
+          <span>category:</span><span>{{ product.category }}</span>
+        </p>
+        <p>
+          <span>rate:</span><span>{{ product.rating.rate }}</span>
+        </p>
+        <p>
+          <span>count:</span><span>{{ product.rating.count }}</span>
+        </p>
+      </div>
+    </div>
+    <div class="description">
+      <h2>Description</h2>
+      <p>{{ product.description }}</p>
+    </div>
+  </div>
+  <div class="add-cart">
+    <strong>{{ product.price | currency }}</strong
+    ><span>{{
+      product.price + product.price - product.price / 3 | number : "1.1-2"
+    }}</span
+    ><br />
+    <form [formGroup]="cart">
+      <div>
+        <label class="quantity-text">Quantity:</label>
+        <div class="change-amount">
+          <button class="minus" type="button" (click)="changeQuantity('-')">
+            <i class="fa-solid fa-minus"></i>
+          </button>
+          <input
+            type="text"
+            aria-describedby="button-addon1"
+            formControlName="amount"
+          />
+          <button class="plus" type="button" (click)="changeQuantity('+')">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="add-btns">
+        <button class="add" (click)="addToCart()">Add to cart</button>
+        <button class="buy">Buy now</button>
+      </div>
+    </form>
+    <img class="buy-now-gif" src="../../../assets/buy now gif.gif" alt="" />
+  </div>
+</div>

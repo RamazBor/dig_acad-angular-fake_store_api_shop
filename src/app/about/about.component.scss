@@ -1,0 +1,65 @@
+.content {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 80px 0;
+  background-color: aliceblue;
+  .about-info {
+    width: 400px;
+    p,
+    address {
+      margin-bottom: 25px;
+      line-height: 30px;
+    }
+    p {
+      span {
+        font-weight: bold;
+      }
+    }
+    address {
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+  .image {
+    img {
+      width: 500px;
+      height: 300px;
+      &:hover {
+        animation: spin 4s infinite;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@media screen and (max-width: 918px) {
+  .content {
+    .about-info {
+      width: 90%;
+    }
+    .image {
+      margin-top: 30px;
+      width: 80%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 669px) {
+  .content {
+    padding: 20px 0;
+  }
+}

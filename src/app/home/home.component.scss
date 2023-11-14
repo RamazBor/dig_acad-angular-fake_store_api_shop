@@ -1,0 +1,192 @@
+.main {
+  width: 100%;
+  height: auto;
+  background-color: #9f88b8;
+  z-index: -5;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  .box1 {
+    width: 500px;
+    height: 600px;
+    color: #fff;
+    font-size: 10rem;
+    font-weight: 500;
+    line-height: 130px;
+    overflow: hidden;
+    background-image: url("../../assets/black-friday-shopping-carts-with-copy-space.jpg");
+    background-size: 100% 100%;
+    z-index: 5;
+    position: relative;
+    .text {
+      position: absolute;
+      top: 40px;
+      left: -100%;
+      animation: anim 2s forwards 3s;
+      color: #ff1212;
+      font-size: 50px;
+      text-align: center;
+      line-height: 85px;
+    }
+  }
+  .box2 {
+    width: 500px;
+    height: 600px;
+    position: relative;
+    .background-img {
+      width: 530px;
+      height: 600px;
+      background-image: url("../../assets/animated-img1.png");
+      position: relative;
+      bottom: -100%;
+      left: -100%;
+      animation: anim2 2s forwards, anim3 3s forwards 3s;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 530px;
+        height: 600px;
+        background-image: url("../../assets/animated-img2.png");
+        left: 0;
+        z-index: -1;
+      }
+    }
+  }
+}
+
+// animation for text
+@keyframes anim {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 8%;
+  }
+}
+
+// animations for images
+@keyframes anim2 {
+  from {
+    bottom: -100%;
+  }
+  to {
+    bottom: 15%;
+  }
+}
+
+@keyframes anim3 {
+  from {
+    left: -100%;
+    width: 500px;
+  }
+  to {
+    width: 0px;
+    left: -35%;
+  }
+}
+
+// animations for responsive pages
+@keyframes anim4 {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 27%;
+  }
+}
+
+@keyframes anim5 {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 18%;
+  }
+}
+
+@keyframes anim6 {
+  from {
+    left: -20%;
+    width: 500px;
+  }
+  to {
+    width: 0px;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 1016px) {
+  .main {
+    justify-content: center;
+    .box1,
+    .box2 {
+      width: 100%;
+    }
+    .box1 {
+      .text {
+        animation: anim4 2s forwards 3s;
+        margin-right: 100px;
+      }
+    }
+    .box2 {
+      .background-img {
+        animation: anim2 2s forwards, anim6 3s forwards 3s;
+        left: -20%;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 530px;
+          height: 600px;
+          background-image: url("../../assets/animated-img2.png");
+          left: 0;
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .main {
+    .box1 {
+      .text {
+        animation: anim5 2s forwards 3s;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 605px) {
+  .main {
+    .box1 {
+      .text {
+        font-size: 40px;
+      }
+    }
+    .box2 {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .main {
+    .box2 {
+      .background-img {
+        animation: anim2 2s forwards, anim3 3s forwards 3s;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .main {
+    .box1 {
+      .text {
+        font-size: 20px;
+        line-height: 50px;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<button type="button" [routerLink]="'cart'" *ngIf="amount$ | async as amount">
+  Cart
+  <span>
+    {{ amount.length }}
+    <span class="visually-hidden">unread messages</span>
+  </span>
+</button>

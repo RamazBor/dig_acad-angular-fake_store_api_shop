@@ -1,0 +1,74 @@
+.card {
+  height: 420px;
+  text-align: center;
+  padding: 10px 20px;
+  margin: 0 10px 10px 0;
+  position: relative;
+  border: 1px solid #556287;
+  border-radius: 8px;
+  h2 {
+    font-size: 22px;
+  }
+  img {
+    width: 80%;
+    height: 200px;
+    margin: auto;
+  }
+  .btns {
+    position: absolute;
+    bottom: 20px;
+    right: 7px;
+    display: flex;
+    button {
+      color: #fff;
+      border-radius: 10px;
+      width: 120px;
+      height: 40px;
+      margin-left: 10px;
+      cursor: pointer;
+      border: none;
+    }
+    #view {
+      background-color: #1a3800;
+    }
+    #delete {
+      background-color: #7d0000;
+    }
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .card {
+    width: 400px;
+    img {
+      width: 50%;
+    }
+    .btns {
+      right: 70px;
+    }
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .card {
+    width: 300px;
+    h2 {
+      font-size: 18px;
+    }
+    img {
+      width: 60%;
+    }
+    .btns {
+      right: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .card {
+    width: 250px;
+    .btns {
+      right: 0;
+    }
+  }
+}

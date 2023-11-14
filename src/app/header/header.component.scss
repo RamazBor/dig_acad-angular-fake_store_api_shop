@@ -1,0 +1,142 @@
+header {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px;
+  background-image: linear-gradient(#4568dc, #b06ab3);
+  .logo {
+    img {
+      width: 130px;
+      height: 130px;
+      border-radius: 60%;
+      cursor: pointer;
+    }
+  }
+  nav {
+    display: flex;
+    ul {
+      list-style: none;
+      li {
+        font-size: 18px;
+        margin-right: 15px;
+        cursor: pointer;
+        padding: 10px;
+        transition: 0.05s;
+        border-radius: 10px;
+        &:hover {
+          background-image: linear-gradient(#aa076b, #61045f);
+          color: #fff;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  .btns {
+    button {
+      padding: 8px 25px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: 0.05s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    .sign-out {
+      background: #c90a0a;
+    }
+  }
+  .menu-bar,
+  .close-icon {
+    display: none;
+    i {
+      font-size: 25px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .close-icon {
+    i {
+      width: 22px;
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  header {
+    nav {
+      ul {
+        li {
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 660px) {
+  header {
+    nav {
+      width: 270px;
+      background-color: #f2f2f2;
+      flex-direction: column;
+      transition: 1s;
+      padding: 2px 0 0 12px;
+      text-align: center;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      z-index: 999;
+      ul {
+        li {
+          width: 95.2%;
+          border-radius: 4px;
+          font-size: 16px;
+        }
+      }
+    }
+    .menu-bar,
+    .close-icon {
+      display: inline-block;
+    }
+    .hide-navbar {
+      position: absolute;
+      top: 100px;
+      right: -300px;
+      display: none;
+    }
+
+    .show-navbar {
+      position: absolute;
+      top: 100px;
+      right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  header {
+    .menu-bar,
+    .close-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 250px) {
+  header {
+    .btns {
+      .sign-out {
+        background: #c90a0a;
+        padding: 8px 6px;
+        margin-top: 5px;
+      }
+    }
+  }
+}

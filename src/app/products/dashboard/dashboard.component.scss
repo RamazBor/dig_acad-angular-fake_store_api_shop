@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin-top: 150px;
+  margin-left: auto;
+  position: relative;
+  h1 {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(calc(-50% - 70px));
+  }
+  .select {
+    position: absolute;
+    top: -70px;
+    left: -60px;
+    p {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+    select {
+      outline: none;
+      width: 130px;
+      height: 30px;
+      background-color: #c9aed6;
+      color: #190f29;
+      border-radius: 5px;
+      border: none;
+      option {
+        font-size: 16px;
+      }
+    }
+  }
+  .sort-button {
+    position: absolute;
+    top: -47px;
+    right: 60px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-image: linear-gradient(
+      to right,
+      #7474bf 0%,
+      #348ac7 51%,
+      #7474bf 100%
+    );
+    transition: 0.5s;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px #eee;
+    &:hover {
+      background-position: right center;
+    }
+  }
+  .crd {
+    width: 276px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .container {
+    .select {
+      left: -20px;
+    }
+    .sort-button {
+      right: 80px;
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .container {
+    .sort-button {
+      right: 10px;
+    }
+  }
+}

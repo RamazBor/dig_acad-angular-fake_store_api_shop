@@ -1,0 +1,121 @@
+.body {
+  width: 100%;
+  height: 100vh;
+  background: #e2e2e2;
+  position: relative;
+  .form {
+    width: 430px;
+    height: 350px;
+    background-color: #fff;
+    border-radius: 8px;
+    position: absolute;
+    top: 27%;
+    left: 30%;
+    padding: 40px 0 0 10px;
+    h2 {
+      color: #454545;
+      font-weight: 500;
+      margin: 20px 0 35px 7px;
+    }
+    .form-group {
+      input {
+        width: 95%;
+        height: 40px;
+        outline: none;
+        padding-left: 10px;
+        margin: 10px 0;
+        color: #4d4d4d;
+        font-size: 15px;
+      }
+
+      .invalid-field {
+        border: 2px solid #ab0000;
+      }
+
+      .valid-field {
+        border: none;
+        border-bottom: 1px solid #b5b5b5;
+      }
+
+      .alert {
+        color: #ab0000;
+      }
+    }
+    p {
+      color: #616161;
+      font-size: 15px;
+      margin: 8px 40px 50px 23%;
+    }
+    .btns {
+      button {
+        border: none;
+        transition: 0.4s;
+        width: 50%;
+        height: 40px;
+        cursor: pointer;
+        margin-left: -10px;
+        position: absolute;
+        bottom: 0;
+        &:hover {
+          padding-left: 10px;
+        }
+      }
+      button[type="submit"] {
+        background-color: #673ab7;
+        border-bottom-left-radius: 8px;
+      }
+      button[type="reset"] {
+        background-color: #ff5722;
+        right: 0;
+        border-bottom-right-radius: 8px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    max-width: 55%;
+  }
+}
+
+@media screen and (max-width: 622px) {
+  .body {
+    font-size: 80%;
+    .form {
+      form {
+        p {
+          font-size: 90%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .body {
+    font-size: 60%;
+    .form {
+      max-width: 70%;
+      height: 280px;
+      left: 20%;
+      form {
+        .form-group {
+          input {
+            font-size: 10px;
+            height: 30px;
+          }
+        }
+        p {
+          font-size: 80%;
+        }
+        .btns {
+          button {
+            font-size: 10px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+}
