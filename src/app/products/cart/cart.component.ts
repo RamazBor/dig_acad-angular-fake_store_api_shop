@@ -44,9 +44,11 @@ export class CartComponent {
   }
 
   removeItem(id: number) {
-    if (this.cartProducts.length !== 0) {
+    if (this.cartProducts.length > 1) {
       this.cartService.removeProduct(id);
-    } else {
+    }
+    if(this.cartProducts.length === 1) {
+      this.cartService.removeProduct(id);
       this.cartProducts.length = 0;
     }
   }
