@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CartService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   cartProducts$: BehaviorSubject<{ id: number, amount: number }[]> =
     new BehaviorSubject<{ id: number, amount: number }[]>([]);

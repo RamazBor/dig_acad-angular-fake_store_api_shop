@@ -44,13 +44,10 @@ export class CartComponent {
   }
 
   removeItem(id: number) {
-    if (this.cartProducts.length > 1) {
-      this.cartService.removeProduct(id);
-    }
-    if(this.cartProducts.length === 1) {
-      this.cartService.removeProduct(id);
+    if (this.cartProducts.length === 1) {
       this.cartProducts.length = 0;
     }
+    this.cartService.removeProduct(id);
   }
 
   ngOnDestroy() {
