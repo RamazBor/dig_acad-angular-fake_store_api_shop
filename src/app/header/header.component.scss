@@ -24,11 +24,11 @@ header {
         padding: 10px;
         transition: 0.05s;
         border-radius: 10px;
-        &:hover {
-          background-image: linear-gradient(#aa076b, #61045f);
-          color: #fff;
-          transform: scale(1.1);
-        }
+      }
+      .active {
+        background-image: linear-gradient(#aa076b, #61045f);
+        color: #fff;
+        transform: scale(1.1);
       }
     }
   }

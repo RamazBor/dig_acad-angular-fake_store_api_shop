@@ -58,6 +58,18 @@
   }
 }
 
+.appear_options {
+  display: block;
+}
+
+.hide_options {
+  display: none;
+}
+
+.turn-over_arrow {
+  transform: rotate(-180deg);
+}
+
 @media screen and (max-width: 630px) {
   .container {
     .select {

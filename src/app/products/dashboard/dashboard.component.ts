@@ -20,6 +20,8 @@ export class DashboardComponent {
     'jewelery',
   ];
 
+  sBtnText: string = 'Select your option';
+  clicked: boolean = false;
   selectedCategory: string = '';
   sortOrder: string = 'asc';
   sortField: string = 'price';
@@ -51,6 +53,37 @@ export class DashboardComponent {
         this.productList = data;
         this.sortProductList();
       });
+  }
+
+  options = [
+    { icon: 'bx bxl-github', innerText: "electronics" },
+    { icon: 'bx bxl-instagram-alt', innerText: "women's clothing" },
+    { icon: 'bx bxl-linkedin-square', innerText: "men's clothing" },
+    { icon: 'bx bxl-facebook-circle', innerText: "jewelery" }
+  ]
+
+  menuClick() {
+    this.clicked = !this.clicked;
+  }
+
+  optionClick(opt: { innerText: string; }) {
+    this.sBtnText = opt.innerText;
+  }
+
+  getColor(socNetwork: string): string {
+    switch (socNetwork) {
+      case 'Github':
+        return '#171515';
+      case 'Instagram':
+        return '#E1306C';
+      case 'LinkedIn':
+        return '#0E76A8';
+      case 'Facebook':
+        return '#4267B2';
+      case 'Twitter':
+        return '#1DA1F2';
+    }
+    return '';
   }
 
   loadProductsByCategory(category: string) {

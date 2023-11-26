@@ -28,9 +28,9 @@
     </div>
   </div>
   <div class="add-cart">
-    <strong>{{ product.price | currency }}</strong
+    <strong>{{ product.price | currency:'GBP':'symbol':'1.1-2' }}</strong
     ><span>{{
-      product.price + product.price - product.price / 3 | number : "1.1-2"
+      product.price + product.price - product.price / 3 |  currency:'GBP':'symbol':'1.1-2'
     }}</span
     ><br />
     <form [formGroup]="cart">

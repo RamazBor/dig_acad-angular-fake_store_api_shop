@@ -6,28 +6,28 @@
       <div class="form-group">
         <input
           type="text"
-          formControlName="userName"
+          formControlName="username"
           id="username"
           placeholder="USERNAME"
-          [(ngModel)]="userName"
+          [(ngModel)]="apiUsername"
           autocomplete="on"
           [ngClass]="{
-            'invalid-field': fc['userName'].invalid && fc['userName'].touched,
-            'valid-field': !fc['userName'].touched || !fc['userName'].invalid
+            'invalid-field': fc['username'].invalid && fc['username'].touched,
+            'valid-field': !fc['username'].touched || !fc['username'].invalid
           }"
         />
-        <div *ngIf="fc['userName'].errors?.['required']">
+        <div *ngIf="fc['username'].errors?.['required']">
           <div
             class="alert alert-danger"
-            *ngIf="fc['userName'].touched && fc['userName'].invalid"
+            *ngIf="fc['username'].touched && fc['username'].invalid"
           >
             Username is required..
           </div>
         </div>
-        <div *ngIf="fc['userName'].errors?.['minlength']">
+        <div *ngIf="fc['username'].errors?.['minlength']">
           <div
             class="alert alert-danger"
-            *ngIf="fc['userName'].touched && fc['userName'].invalid"
+            *ngIf="fc['username'].touched && fc['username'].invalid"
           >
             Username must be at least 8 chracters
           </div>
@@ -39,8 +39,8 @@
           formControlName="password"
           id="password"
           placeholder="PASSWORD"
+          [(ngModel)]="apiPassword"
           autocomplete="on"
-          [(ngModel)]="password"
           [ngClass]="{
             'invalid-field': fc['password'].invalid && fc['password'].touched,
             'valid-field': !fc['password'].touched || !fc['password'].invalid

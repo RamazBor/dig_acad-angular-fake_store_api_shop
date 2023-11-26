@@ -1,6 +1,7 @@
 export interface SignIn {
   username: string;
   password: string;
+  rememberUser: boolean;
 }
 
 export interface AuthSuccess extends UserData {
