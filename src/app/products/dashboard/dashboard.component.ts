@@ -1,5 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { tap } from 'rxjs';
 import { Product } from 'src/app/core/intrefaces/product.interface';
 import { ProductsService } from 'src/app/core/services/http.service';
@@ -20,13 +21,12 @@ export class DashboardComponent {
     'jewelery',
   ];
 
-  sBtnText: string = 'Select your option';
-  clicked: boolean = false;
   selectedCategory: string = '';
   sortOrder: string = 'asc';
   sortField: string = 'price';
 
-  constructor(private productService: ProductsService, private router: Router, private el: ElementRef) { }
+  constructor(private productService: ProductsService, private router: Router,
+     private el: ElementRef, private toast: NgToastService) { }
 
   getAllProducts() {
     this.productService.getProducts().pipe(
@@ -55,37 +55,6 @@ export class DashboardComponent {
       });
   }
 
-  options = [
-    { icon: 'bx bxl-github', innerText: "electronics" },
-    { icon: 'bx bxl-instagram-alt', innerText: "women's clothing" },
-    { icon: 'bx bxl-linkedin-square', innerText: "men's clothing" },
-    { icon: 'bx bxl-facebook-circle', innerText: "jewelery" }
-  ]
-
-  menuClick() {
-    this.clicked = !this.clicked;
-  }
-
-  optionClick(opt: { innerText: string; }) {
-    this.sBtnText = opt.innerText;
-  }
-
-  getColor(socNetwork: string): string {
-    switch (socNetwork) {
-      case 'Github':
-        return '#171515';
-      case 'Instagram':
-        return '#E1306C';
-      case 'LinkedIn':
-        return '#0E76A8';
-      case 'Facebook':
-        return '#4267B2';
-      case 'Twitter':
-        return '#1DA1F2';
-    }
-    return '';
-  }
-
   loadProductsByCategory(category: string) {
     this.productService.GetCategory(category).subscribe((res) => {
       this.productList = res;
@@ -110,7 +79,7 @@ export class DashboardComponent {
   deleteProd(id: number) {
     this.productService.deleteProduct(id).subscribe(_ => {
       this.productList = this.productList.filter(p => p.id !== id);
-      alert('This product successfully deleted!');
+      this.toast.success({ detail: 'Success Message', summary: 'This product successfully deleted!', duration: 3000 });
     });
   }
 }

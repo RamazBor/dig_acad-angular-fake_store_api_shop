@@ -48,21 +48,6 @@ export class SignInComponent {
     else {
       this.toast.error({ detail: 'Oops!', summary: 'Invalid username and password!', duration: 3000 });
      }
-    // else if (userName !== '' && password === '83r5^_') {
-    //   this.toast.error({ detail: 'Oops!', summary: 'Invalid username!', duration: 3000 });
-    // }
-    // else if (userName === 'mor_2314' && password !== '') {
-    //   this.toast.error({ detail: 'Oops!', summary: 'Invalid password!', duration: 3000 });
-    // }
-    // else if (userName === '' && password !== '') {
-    //   this.toast.error({ detail: 'Oops!', summary: 'Please, fill in username field!', duration: 3000 });
-    // }
-    // else if (userName !== '' && password === '') {
-    //   this.toast.error({ detail: 'Oops!', summary: 'Please, fill in password field!', duration: 3000 });
-    // }
-    // else {
-    //   this.toast.error({ detail: 'Oops!', summary: 'Please, fill in this fields!', duration: 3000 });
-    // }
   }
 
   reset() {

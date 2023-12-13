@@ -18,6 +18,9 @@ footer {
       li {
         margin-right: 10px;
         color: #ededed;
+        &:hover{
+          cursor: pointer;
+        }
       }
     }
   }

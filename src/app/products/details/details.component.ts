@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { Product } from 'src/app/core/intrefaces/product.interface';
 import { CartService } from 'src/app/core/services/cart.service';
 import { ProductsService } from 'src/app/core/services/http.service';
@@ -16,7 +17,7 @@ export class DetailsComponent {
   cart: FormGroup;
 
   constructor(private productService: ProductsService, private cartService: CartService,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute, private toast: NgToastService) {
     this.cart = new FormGroup({
       amount: new FormControl(1, [Validators.required, Validators.max(6), Validators.min(1)]),
       productId: new FormControl(this.routeId),
@@ -42,7 +43,7 @@ export class DetailsComponent {
     if (status === '-' && amount.value > 1) {
       amount.patchValue(amount.value - 1)
     }
-    if (status === '+' && amount.value < 6) {
+    if (status === '+' && amount.value < this.product.rating.count) {
       amount.patchValue(amount.value + 1)
     }
 
@@ -50,10 +51,14 @@ export class DetailsComponent {
   }
 
   addToCart() {
-    console.log(this.cart, 'Sending Incremental value to Cart');
+    // console.log(this.cart, 'Sending Incremental value to Cart');
     const { productId, amount } = this.cart.value
-    const cartItems = this.cartService.cartProducts$.getValue();
-    cartItems.push({ id: productId, amount })
-    this.cartService.cartProducts$.next(cartItems)
+    if(amount <= this.product.rating.count){
+      const cartItems = this.cartService.cartProducts$.getValue();
+      cartItems.push({ id: productId, amount })
+      this.cartService.cartProducts$.next(cartItems)
+    }else {
+      this.toast.error({ detail: 'Oops!', summary: `There is only ${this.product.rating.count} product!`, duration: 5000 });
+    }
   }
 }

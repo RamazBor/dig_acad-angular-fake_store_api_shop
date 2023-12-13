@@ -8,6 +8,7 @@
         [routerLink]="navMember.path"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeNavbar()"
       >
         {{ navMember.title }}
       </li>
