@@ -24,9 +24,10 @@ export class DashboardComponent {
   selectedCategory: string = '';
   sortOrder: string = 'asc';
   sortField: string = 'price';
+  clicked: boolean = false;
 
   constructor(private productService: ProductsService, private router: Router,
-     private el: ElementRef, private toast: NgToastService) { }
+    private el: ElementRef, private toast: NgToastService) { }
 
   getAllProducts() {
     this.productService.getProducts().pipe(
@@ -38,6 +39,10 @@ export class DashboardComponent {
 
   ngOnInit(): void {
     this.getAllProducts();
+  }
+
+  menuClick() {
+    this.clicked = !this.clicked;
   }
 
   toggleSortOrder() {

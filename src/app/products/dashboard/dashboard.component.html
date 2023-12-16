@@ -1,15 +1,23 @@
 <div class="container">
   <h1>Products</h1>
   <div class="select">
-    <p>Select Category:</p>
-    <select
-      [(ngModel)]="selectedCategory"
-      (change)="loadProductsByCategory(selectedCategory)"
-    >
-      <option *ngFor="let item of productCategories" [value]="item">
-        {{ item }}
-      </option>
-    </select>
+    <p>Filter By Category:</p>
+    <div id="select-music-container" class="select-body" (click)="menuClick()">
+      <select
+        [(ngModel)]="selectedCategory"
+        (change)="loadProductsByCategory(selectedCategory)"
+      >
+        <option *ngFor="let item of productCategories" [value]="item">
+          {{ item }}
+        </option>
+      </select>
+      <div class="select-icon">
+        <i
+          class="fa-solid fa-chevron-down"
+          [ngClass]="{ 'turn-over_arrow': clicked }"
+        ></i>
+      </div>
+    </div>
   </div>
   <button class="sort-button" (click)="toggleSortOrder()">Sort By Price</button>
   <div class="crd" *ngFor="let prod of productList">

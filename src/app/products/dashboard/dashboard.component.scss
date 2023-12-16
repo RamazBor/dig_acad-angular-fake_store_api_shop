@@ -16,19 +16,54 @@
     top: -70px;
     left: -60px;
     p {
-      font-size: 15px;
+      font-size: 16px;
       margin-bottom: 5px;
+      letter-spacing: 0.5px;
     }
-    select {
-      outline: none;
-      width: 130px;
-      height: 29px;
-      background-color: #c9aed6;
-      color: #190f29;
-      border-radius: 5px;
-      border: none;
-      option {
+    .select-body {
+      position: relative;
+      width: 190px;
+      height: 35px;
+      margin: 5px 0 20px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      select {
+        height: 100%;
+        width: 100%;
         font-size: 16px;
+        border: none;
+        appearance: none;
+        padding: 0 30px 0 10px;
+        background: linear-gradient(90deg, #9776a8 79%, #525169 77%);
+        color: black;
+        outline: none;
+        color: #f5f5f5;
+        border-radius: 2px;
+        &:focus .select-icon {
+          transform: rotate(90deg);
+        }
+        option {
+          color: #00f;
+          background: #f7f7f7;
+          &:hover {
+            color: green;
+          }
+        }
+      }
+      .select-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        i {
+          font-size: 20px;
+          color: #f5f5f5;
+        }
       }
     }
   }
@@ -36,7 +71,9 @@
     position: absolute;
     top: -47px;
     right: 60px;
-    padding: 7px 10px;
+    width: 190px;
+    height: 35px;
+    font-size: 16px;
     border-radius: 5px;
     border: none;
     color: #fff;
@@ -58,14 +95,6 @@
   }
 }
 
-.appear_options {
-  display: block;
-}
-
-.hide_options {
-  display: none;
-}
-
 .turn-over_arrow {
   transform: rotate(-180deg);
 }
@@ -81,10 +110,51 @@
   }
 }
 
+@media screen and (max-width: 518px) {
+  .container {
+    .sort-button {
+      right: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .container {
+    .select {
+      .select-body {
+        width: 140px;
+        .select-icon {
+          right: 5px;
+        }
+      }
+    }
+    .sort-button {
+      width: 140px;
+    }
+  }
+}
+
 @media screen and (max-width: 350px) {
   .container {
     .sort-button {
       right: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 322px) {
+  .container {
+    .select {
+      .select-body {
+        width: 120px;
+        .select-icon {
+          right: 5px;
+        }
+      }
+    }
+    .sort-button {
+      width: 120px;
+      font-size: 14px;
     }
   }
 }
